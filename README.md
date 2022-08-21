@@ -1,6 +1,6 @@
 # Dioxus - Use Request Hook
-[![Build Status](https://github.com/antoniusnaumann/dioxus-use-reqest/actions/workflows/build.yml/badge.svg)](https://github.com/antoniusnaumann/dioxus-use-reqest/actions)
-[![Publish Status](https://github.com/antoniusnaumann/dioxus-use-reqest/actions/workflows/publish.yml/badge.svg)](https://github.com/antoniusnaumann/dioxus-use-reqest/actions)
+[![Build Status](https://github.com/antoniusnaumann/dioxus-use-request/actions/workflows/build.yml/badge.svg)](https://github.com/antoniusnaumann/dioxus-use-reqest/actions)
+[![Publish Status](https://github.com/antoniusnaumann/dioxus-use-request/actions/workflows/publish.yml/badge.svg)](https://github.com/antoniusnaumann/dioxus-use-reqest/actions)
 [![Language: Rust](https://img.shields.io/badge/Language-Rust-F46623)](https://www.rust-lang.org)
 [![Crates.io Version](https://img.shields.io/crates/v/dioxus-use-request)](https://crates.io/crates/dioxus-use-request)
 
