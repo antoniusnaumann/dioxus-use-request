@@ -23,7 +23,12 @@ pub fn use_request(tokens: TokenStream) -> TokenStream {
     let regex = regex!(r"\{.*?\}");
     let deps = regex
         .find_iter(&url)
-        .map(|m| Ident::new(m.as_str(), Span::call_site()))
+        .map(|m| {
+            Ident::new(
+                &m.as_str().replace("{", "").replace("}", "")[..],
+                Span::call_site(),
+            )
+        })
         .collect::<Vec<_>>();
 
     quote!(dioxus_use_request::use_request(&#cx, (#(#deps),*), format!(#str_lit))).into()
