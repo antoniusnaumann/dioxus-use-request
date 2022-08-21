@@ -5,19 +5,19 @@ use proc_macro2::{Ident, Span};
 use quote::quote;
 use regex_macro::regex;
 use syn::parse::{Parse, ParseStream, Result};
-use syn::{parse_macro_input, LitStr};
+use syn::{parse_macro_input, LitStr, Token};
 
-struct MacroInput(syn::Ident, LitStr);
+struct MacroInput(syn::Ident, Token!(,), LitStr);
 
 impl Parse for MacroInput {
     fn parse(input: ParseStream) -> Result<Self> {
-        Ok(MacroInput(input.parse()?, input.parse()?))
+        Ok(MacroInput(input.parse()?, input.parse()?, input.parse()?))
     }
 }
 
 #[proc_macro]
 pub fn use_request(tokens: TokenStream) -> TokenStream {
-    let MacroInput(cx, str_lit) = parse_macro_input!(tokens);
+    let MacroInput(cx, _, str_lit) = parse_macro_input!(tokens);
 
     let url = str_lit.value();
     let regex = regex!("{.*?}");
