@@ -1,8 +1,30 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        let result = 2 + 2;
-        assert_eq!(result, 4);
+extern crate proc_macro;
+
+use proc_macro::TokenStream;
+use proc_macro2::{Ident, Span};
+use quote::quote;
+use regex_macro::regex;
+use syn::parse::{Parse, ParseStream, Result};
+use syn::{parse_macro_input, LitStr};
+
+struct MacroInput(syn::Ident, LitStr);
+
+impl Parse for MacroInput {
+    fn parse(input: ParseStream) -> Result<Self> {
+        Ok(MacroInput(input.parse()?, input.parse()?))
     }
+}
+
+#[proc_macro]
+pub fn use_request(tokens: TokenStream) -> TokenStream {
+    let MacroInput(cx, str_lit) = parse_macro_input!(tokens);
+
+    let url = str_lit.value();
+    let regex = regex!("{.*?}");
+    let deps = regex
+        .find_iter(&url)
+        .map(|m| Ident::new(m.as_str(), Span::call_site()))
+        .collect::<Vec<_>>();
+
+    quote!(dioxus_use_request::use_request(&#cx, (#(#deps),*), format!(#str_lit))).into()
 }

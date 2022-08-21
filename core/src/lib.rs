@@ -1,8 +1,6 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        let result = 2 + 2;
-        assert_eq!(result, 4);
-    }
-}
+mod use_request;
+
+pub use use_request::*;
+
+#[cfg(feature = "macro")]
+pub use dioxus_use_request_macro::*;

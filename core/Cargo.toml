@@ -6,3 +6,10 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+dioxus = { version = "0.2.4" }
+dioxus-use-request-macro = { version = "0.1.0", path = "../macro", optional = true }
+reqwest = { version = "0.11.11", features = ["json"] }
+serde = "1.0.144"
+
+[features]
+macro = ["dep:dioxus-use-request-macro"]
