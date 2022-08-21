@@ -1,10 +1,13 @@
 [package]
 name = "dioxus-use-request"
 description = "use_request hook for Dioxus"
-version = "0.1.4"
+version = "0.1.5"
 edition = "2021"
 license = "MIT OR Apache-2.0"
-
+repository = "https://github.com/antoniusnaumann/dioxus-use-request"
+readme = "../README.md"
+keywords = ["dioxus", "ui", "hook", "react", "wasm"]
+categories = ["wasm", "gui", "web-programming"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
