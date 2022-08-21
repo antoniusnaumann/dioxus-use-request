@@ -1,0 +1,51 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v[0-9][0-9]?\.[0-9][0-9]?\.[0-9].*'
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check
+        run: cargo check --verbose
+
+  build:
+    runs-on: ubuntu-latest
+    needs: check
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: cargo build --verbose
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test
+        run: cargo test --verbose
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v3
+      - name: Publish macro package
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CRATES_IO_LOGIN }}
+        run: cd macro && cargo publish
+
+      - uses: actions/checkout@v3
+      - name: Publish core package
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CRATES_IO_LOGIN }}
+        run: cd ../core && cargo publish
+
+# TODO: Setup automatic release
