@@ -20,7 +20,7 @@ pub fn use_request(tokens: TokenStream) -> TokenStream {
     let MacroInput(cx, _, str_lit) = parse_macro_input!(tokens);
 
     let url = str_lit.value();
-    let regex = regex!(r"{.*?}");
+    let regex = regex!(r"\{.*?\}");
     let deps = regex
         .find_iter(&url)
         .map(|m| Ident::new(m.as_str(), Span::call_site()))
