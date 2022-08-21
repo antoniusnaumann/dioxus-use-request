@@ -64,6 +64,15 @@ To use this crate, simply add it as dependency in your Cargo.toml. Make sure to 
 [dependencies]
 dioxus-use-request = { version = "0.1.4", features = ["macro"] }
 ```
+
+## Features
+- [x] Implement hook
+- [x] Convienent macro with dependency extraction
+- [ ] Return `UseRequest` handle to make request restartable
+- [ ] Implement `.split()` on `UseRequest` handle which returns value and restart closure
+
+If you encounter a bug or have an idea for a feature, feel free to [open an issue](https://github.com/antoniusnaumann/dioxus-use-request/issues/new)!
+
 ## License
 This code is dual-licensed and availabe under MIT-License or Apache 2.0-License depending on what suits your needs best.
 
