@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+  "dioxus-use-request",
+  "dioxus-use-request-macro",
+]
