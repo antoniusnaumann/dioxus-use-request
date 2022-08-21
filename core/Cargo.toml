@@ -1,7 +1,7 @@
 [package]
 name = "dioxus-use-request"
 description = "use_request hook for Dioxus"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 
@@ -9,7 +9,7 @@ license = "MIT OR Apache-2.0"
 
 [dependencies]
 dioxus = { version = "0.2.4" }
-dioxus-use-request-macro = { version = "0.1.1", path = "../macro", optional = true }
+dioxus-use-request-macro = { version = "0.1.2", path = "../macro", optional = true }
 reqwest = { version = "0.11.11", features = ["json"] }
 serde = "1.0.144"
 
