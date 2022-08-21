@@ -4,7 +4,7 @@
 [![Language: Rust](https://img.shields.io/badge/Language-Rust-F46623)](https://www.rust-lang.org)
 [![Crates.io Version](https://img.shields.io/crates/v/dioxus-use-request)](https://crates.io/crates/dioxus-use-request)
 
-A small crate that adds a hook for simple GET requests and [convienient macro]("#Macro") to [Dioxus](https://dioxuslabs.com).
+A small crate that adds a hook for simple GET requests and [convienient macro](#macro) to [Dioxus](https://dioxuslabs.com).
 
 ## Example
 ### Function
