@@ -7,7 +7,7 @@ use serde::de::DeserializeOwned;
 /// Hook to perform a simple HTTP GET request in a Dioxus component.
 ///
 /// Returns a `UseRequest` handle
-pub fn use_request<D, U, R>(cx: &'static ScopeState, dependencies: D, url: U) -> &UseRequest<R>
+pub fn use_request<D, U, R>(cx: &'static ScopeState, dependencies: D, url: U) -> UseRequest<R>
 where
     D: UseFutureDep,
     U: 'static + IntoUrl,
@@ -17,7 +17,7 @@ where
         reqwest::get(url).await.unwrap().json::<R>().await
     });
 
-    cx.use_hook(|_| UseRequest { future })
+    UseRequest { future }
 }
 
 /// Handle returned by the `use_request` hook that can be used to access the value, cancel or restart the underlying request.
@@ -45,11 +45,6 @@ impl<R> UseRequest<'_, R> {
     /// Get the ID of the underlying future in Dioxus' internal scheduler
     pub fn task(&self) -> Option<TaskId> {
         self.future.task()
-    }
-
-    /// Convert this handle into a value and the handle itself
-    pub fn split(&self) -> (RequestResult<&R>, &Self) {
-        (self.value(), self)
     }
 }
 

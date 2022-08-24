@@ -170,7 +170,7 @@ dependencies = [
 
 [[package]]
 name = "dioxus-use-request"
-version = "0.2.0-alpha01"
+version = "0.2.0-alpha03"
 dependencies = [
  "dioxus",
  "dioxus-use-request-macro",
@@ -180,7 +180,7 @@ dependencies = [
 
 [[package]]
 name = "dioxus-use-request-macro"
-version = "0.1.4"
+version = "0.2.0-alpha03"
 dependencies = [
  "proc-macro2",
  "quote",

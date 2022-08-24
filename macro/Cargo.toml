@@ -1,7 +1,7 @@
 [package]
 name = "dioxus-use-request-macro"
 description = "Macro crate for the dioxus-use-request crate"
-version = "0.1.4"
+version = "0.2.0-alpha03"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 

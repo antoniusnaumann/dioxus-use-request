@@ -31,5 +31,11 @@ pub fn use_request(tokens: TokenStream) -> TokenStream {
         })
         .collect::<Vec<_>>();
 
-    quote!(dioxus_use_request::use_request(&#cx, (#(#deps),*), format!(#str_lit))).into()
+    quote! {
+        {
+            let state = dioxus_use_request::use_request(&#cx, (#(#deps),*), format!(#str_lit));
+            state.value()
+        }
+    }
+    .into()
 }
