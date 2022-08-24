@@ -7,11 +7,11 @@ use serde::de::DeserializeOwned;
 /// Hook to perform a simple HTTP GET request in a Dioxus component.
 ///
 /// Returns a `UseRequest` handle
-pub fn use_request<D, U, R>(cx: &'static ScopeState, dependencies: D, url: U) -> UseRequest<R>
+pub fn use_request<D, U, R>(cx: &ScopeState, dependencies: D, url: U) -> UseRequest<R>
 where
     D: UseFutureDep,
     U: 'static + IntoUrl,
-    R: DeserializeOwned,
+    R: 'static + DeserializeOwned,
 {
     let future = use_future(cx, dependencies, |_| async move {
         reqwest::get(url).await.unwrap().json::<R>().await

@@ -1,7 +1,7 @@
 [package]
 name = "dioxus-use-request"
 description = "use_request hook for Dioxus"
-version = "0.2.0-alpha03"
+version = "0.2.0-alpha04"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/antoniusnaumann/dioxus-use-request"
