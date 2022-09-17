@@ -170,7 +170,7 @@ dependencies = [
 
 [[package]]
 name = "dioxus-use-request"
-version = "0.1.4"
+version = "0.1.5"
 dependencies = [
  "dioxus",
  "dioxus-use-request-macro",
