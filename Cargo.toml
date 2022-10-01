@@ -4,3 +4,13 @@ members = [
   "core",
   "macro",
 ]
+
+[workspace.package]
+version = "0.2.0-alpha06"
+description = "A collection of hooks for Dioxus for performing simple http requests"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/antoniusnaumann/dioxus-use-request"
+
+[workspace.dependencies]
+dioxus-use-request-macro = { version = "0.2.0-alpha06", path = "./macro" }
+
